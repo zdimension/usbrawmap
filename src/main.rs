@@ -85,11 +85,9 @@ impl<'de> Deserialize<'de> for MappingConfig {
     {
         HashMap::<String, MappingAction>::deserialize(deserializer)?
             .into_iter()
-            .map(|(k, v)| {
-                k.parse()
-                    .map(|k| (k, (Mapping(k, v))))
-                    .map_err(|e| serde::de::Error::custom(e))
-            })
+            .map(|(k, v)| k.parse()
+                .map(|k| (k, (Mapping(k, v))))
+                .map_err(serde::de::Error::custom))
             .collect::<Result<_, D::Error>>()
             .map(MappingConfig)
     }
@@ -101,7 +99,7 @@ fn main() -> anyhow::Result<()> {
     println!("Loaded {} mappings", config.mappings.0.len());
 
     let thread = thread::spawn(move || -> Result<(), anyhow::Error> {
-        let driver = UsbPcapDriver::new(&Path::new(&format!(
+        let driver = UsbPcapDriver::new(Path::new(&format!(
             r"\\.\USBPcap{}",
             config.general.driver
         )))
