@@ -9,7 +9,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout source
-        uses: action/checkout@v2
+        uses: actions/checkout@v2
       - name: Build release (Windows)
         uses: actions-rs/cargo@v1
         with:
