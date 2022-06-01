@@ -1,0 +1,64 @@
+# Configuration file for Sun Type-6 and Type-7 keyboard
+
+[general]
+driver = 3 # use file \\.\USBPcap3
+
+[mappings.102] # Sleep
+type = "keys"
+keys = ["SLEEP"]
+
+[mappings.116] # Open
+type = "keys"
+keys = ["CONTROL", "O"]
+
+[mappings.117] # Help
+type = "keys"
+keys = ["F1"]
+
+[mappings.118] # Properties
+type = "keys"
+keys = ["MENU", "RETURN"]
+
+[mappings.119] # Front
+type = "keys"
+keys = ["LWIN", "D"]
+
+[mappings.120] # Stop
+type = "keys"
+keys = ["CONTROL", "C"]
+
+[mappings.121] # Again
+type = "keys"
+keys = ["UP", "RETURN"]
+
+[mappings.122] # Undo
+type = "keys"
+keys = ["CONTROL", "Z"]
+
+[mappings.123] # Cut
+type = "keys"
+keys = ["CONTROL", "X"]
+
+[mappings.124] # Copy
+type = "keys"
+keys = ["CONTROL", "C"]
+
+[mappings.125] # Paste
+type = "keys"
+keys = ["CONTROL", "V"]
+
+[mappings.126] # Find
+type = "keys"
+keys = ["CONTROL", "F"]
+
+[mappings.127] # Mute
+type = "keys"
+keys = ["VOLUME_MUTE"]
+
+[mappings.128] # Volume Up
+type = "keys"
+keys = ["VOLUME_UP"]
+
+[mappings.129] # Volume Down
+type = "keys"
+keys = ["VOLUME_DOWN"]

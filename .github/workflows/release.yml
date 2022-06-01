@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-windows:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout source
+        uses: action/checkout@v2
+      - name: Build release (Windows)
+        uses: actions-rs/cargo@v1
+        with:
+          command: build
+          args: --release --target=x86_64-pc-windows-msvc
+      - name: Upload binary
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          asset_name: usbrawmap-${{ github.event.release.tag-name }}-x86_64.exe
+          asset_path: |
+            target/x86_64-pc-windows-msvc/release/usbrawmap.exe
+          upload_url: ${{ github.event.release.upload_url }}
