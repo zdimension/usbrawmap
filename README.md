@@ -19,8 +19,25 @@ actions at each key event.
 2. Run `C:\Program Files\USBPcap\USBPcamCMD.exe` as administrator, you'll see something like this:
   ![image](https://user-images.githubusercontent.com/4533568/171448708-1c444841-91f5-420b-a848-1bf0fcec6208.png)
 3. Search for your keyboard in the list. Here, 3 root hubs are displayed, and only the third one really contains devices, so the right hub is number 3.
-4. Change the `general.driver` setting in `usbrawmap.toml` accordingly.
-5. Launch usbrawmap as administrator in the folder containing the configuration file. You should see this:
+4. Change the `general.driver` setting in `usbrawmap.toml` accordingly, for example by default the file contains:
+```toml
+# Configuration file for Sun Type-6 and Type-7 keyboard
+
+[general]
+driver = 3 # use file \\.\USBPcap3
+
+......
+```
+If the hub containing your keyboard was number 1, you'd edit the file so it contains:
+```toml
+# Configuration file for Sun Type-6 and Type-7 keyboard
+
+[general]
+driver = 1
+
+......
+```
+5. Launch usbrawmap as administrator (right click, Run As Administrator) in the folder containing the configuration file. You should see this:
    ![image](https://user-images.githubusercontent.com/4533568/171449258-b84c2b82-e51d-4d0d-a77e-fcb6c336962b.png)
    
 ## Customizing mappings
