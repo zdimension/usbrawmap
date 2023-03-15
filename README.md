@@ -16,6 +16,7 @@ actions at each key event.
 
 ## Usage
 
+0. Download the latest release and extract the .zip somewhere (for example in C:\usbrawmap).
 1. Install **USBPcap** from its [official website](https://desowin.org/usbpcap/). You may need to reboot your computer.
 2. Run `C:\Program Files\USBPcap\USBPcamCMD.exe` as administrator, you'll see something like this:
   ![image](https://user-images.githubusercontent.com/4533568/171448708-1c444841-91f5-420b-a848-1bf0fcec6208.png)
@@ -44,6 +45,12 @@ actions at each key event.
 
 5. Launch usbrawmap as administrator (right click, Run As Administrator) in the folder containing the configuration file. You should see this:
    ![image](https://user-images.githubusercontent.com/4533568/171449258-b84c2b82-e51d-4d0d-a77e-fcb6c336962b.png)
+   
+6. If the program started correctly, the config file has been loaded. Ensure the keys work as expected. Close the program.
+
+7. Open the Task Scheduler (Win+R, `taskschd.msc`), use the sidebar on the right to create a task. Give it a simple name, like "usbrawmap", check "Run with highest privileges". In the "Actions" tab, add an action. Browse and select usbrawmap.exe in the installation directory, and put the path of the folder where that file is located in the "Start in" field. In the "Conditions" tab, uncheck both checkboxes under "Power". Save.
+
+8. Open the "Startup" directory (Win+R, `shell:startup`), right click, "New", "Shortcut". As the target, write `schtasks.exe /run /tn yourtaskname`, with the name of the task you created. Run the shortcut, check that the keys are working. Now, the program will start when the computer is powered on.
 
 ## Customizing mappings
 
@@ -64,6 +71,8 @@ path = "notepad.exe"
 The key names (`CONTROL`, ...) must be in the VK format, with a full list available [here](src/vk.rs#L22).
 
 The provided configuration file contains mappings for the Type-6 keyboard shown above, but in practice any scancode can be mapped.
+
+**Note:** to refresh the configuration file, kill the process (usbrawmap.exe) using the Task Manager, and start it again through the shortcut in `shell:startup`.
 
 ## License
 
