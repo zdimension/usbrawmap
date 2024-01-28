@@ -48,7 +48,7 @@ actions at each key event.
    
 6. If the program started correctly, the config file has been loaded. Ensure the keys work as expected. Close the program.
 
-7. Open the Task Scheduler (Win+R, `taskschd.msc`), use the sidebar on the right to create a task. Give it a simple name, like "usbrawmap", check "Run with highest privileges". In the "Actions" tab, add an action. Browse and select usbrawmap.exe in the installation directory, and put the path of the folder where that file is located in the "Start in" field. In the "Conditions" tab, uncheck both checkboxes under "Power". Save.
+7. Open the Task Scheduler (Win+R, `taskschd.msc`), use the sidebar on the right to create a task. Give it a simple name, like "usbrawmap", check "Run with highest privileges". In the "Actions" tab, add an action. Set the "program/script" field to "powershell.exe" and the arguments to `-noexit -WindowStyle hidden -command ".\usbrawmap.exe"`. Set the "start in" field to the directory containing usbrawmap.exe (the installation directory). In the "Conditions" tab, uncheck both checkboxes under "Power". In the "General" tab, make sure the "Run only when the user is logged on" box is checked. Save. 
 
 8. Open the "Startup" directory (Win+R, `shell:startup`), right click, "New", "Shortcut". As the target, write `schtasks.exe /run /tn yourtaskname`, with the name of the task you created. Run the shortcut, check that the keys are working. Now, the program will start when the computer is powered on.
 
