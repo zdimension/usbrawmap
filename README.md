@@ -57,16 +57,16 @@ actions at each key event.
 The configuration file (`usbrawmap.toml`) uses the following format:
 
 ```toml
-[mappings.SCANCODE]
+[mappings.SCANCODEHERE]
 type = "keys"
 keys = ["CONTROL", "O"]
 
-[mappings.SCANCODE]
+[mappings.SCANCODEHERE]
 type = "program"
 path = "notepad.exe"
 ```
 
-`SCANCODE` is the USB scancode for the key, with a full list available [here](https://www.win.tue.nl/~aeb/linux/kbd/scancodes-14.html).
+Replace `SCANCODEHERE` with the USB scancode for the key, with a full list available [here](https://www.win.tue.nl/~aeb/linux/kbd/scancodes-14.html).
 
 The key names (`CONTROL`, ...) must be in the VK format, with a full list available [here](src/vk.rs#L22) (another, maybe more complete list, is available [here](http://www.kbdedit.com/manual/low_level_vk_list.html)).
 
