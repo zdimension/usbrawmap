@@ -68,7 +68,7 @@ path = "notepad.exe"
 
 `SCANCODE` is the USB scancode for the key, with a full list available [here](https://www.win.tue.nl/~aeb/linux/kbd/scancodes-14.html).
 
-The key names (`CONTROL`, ...) must be in the VK format, with a full list available [here](src/vk.rs#L22).
+The key names (`CONTROL`, ...) must be in the VK format, with a full list available [here](src/vk.rs#L22) (another, maybe more complete list, is available [here](http://www.kbdedit.com/manual/low_level_vk_list.html)).
 
 The provided configuration file contains mappings for the Type-6 keyboard shown above, but in practice any scancode can be mapped.
 
